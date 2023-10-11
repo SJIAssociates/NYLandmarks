@@ -1,0 +1,34 @@
+{
+  "entry": {
+    "main": [
+      "./scripts/main.js",
+      "./styles/main.scss"
+    ],
+    "owl": [
+      "./styles/owl.scss",
+      "./scripts/owl.carousel.min.js"
+    ],
+    "customizer": [
+      "./scripts/customizer.js"
+    ],
+    "explorer": [
+        "./scripts/explorer.js"
+    ],
+    "sacred": [
+        "./scripts/sacred.js"
+    ],
+    "celebrate": [
+        "./scripts/celebrate.js",
+        "./styles/celebrate.scss"
+    ]
+  },
+  "publicPath": "/wp-content/themes/sage",
+  "devUrl": "https://nylc.local",
+  "proxyUrl": "https://localhost:3000",
+  "cacheBusting": "[name]_[hash:8]",
+  "watch": [
+    "app/**/*.php",
+    "config/**/*.php",
+    "resources/views/**/*.php"
+  ]
+}

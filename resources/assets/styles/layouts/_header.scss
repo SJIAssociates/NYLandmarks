@@ -1,0 +1,302 @@
+.banner {
+  color: white;
+  position: relative;
+  z-index: 99999;
+
+  .sub-menu {
+    opacity: 0;
+    height: 0;
+    position: absolute;
+    background: white;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: opacity 0.4s;
+    overflow: hidden;
+
+    li {
+      margin-left: 0 !important;
+      padding: 1em 1.25em;
+    }
+
+    a {
+      padding: 0 !important;
+      color: black !important;
+      font-weight: 400 !important;
+    }
+  }
+
+  .nav-primary,
+  .header-btns {
+    @apply hidden;
+
+    .header-btns {
+      max-width: 240px;
+    }
+  }
+
+  .nav {
+    @apply list-reset flex flex-wrap;
+
+    a {
+      @apply inline-block px-2 py-3 text-lg text-white border-none;
+
+      font-family: benton-sans-condensed, sans-serif;
+      font-weight: 600;
+      transition: all 0.4s;
+
+      &:hover {
+        color: black;
+      }
+    }
+
+    li {
+      margin-left: 0;
+      transition: all 0.4s;
+
+      &:hover,
+      &.current_page_item {
+        background: white;
+
+        a {
+          color: black;
+        }
+      }
+    }
+  }
+
+  .menu-item-has-children .sub-menu .current_page_item a {
+    border-bottom: 2px solid;
+  }
+
+  .menu-item-has-children:hover .sub-menu {
+    display: block;
+    opacity: 1;
+    height: auto;
+    z-index: 9000;
+    box-shadow: 7px 7px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .brand {
+    img {
+      width: 150px;
+      margin: 10px 0;
+    }
+  }
+
+  .btn-join {
+    @apply uppercase text-white font-bold;
+
+    font-size: 12px;
+    padding: 12px 20px;
+  }
+
+  .btn-donate {
+    @apply bg-white text-primary uppercase inline-block;
+
+    padding: 13px 20px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 0;
+    border-color: $primary;
+  }
+
+  .nav .sub-menu .current_page_item a {
+    border-bottom: 2px solid;
+  }
+
+  .nav .sub-menu li a:hover {
+    border-bottom: 2px solid;
+  }
+}
+
+.menu-toggle {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 30px;
+  width: 50px;
+  display: block;
+  z-index: 99999;
+
+  .bar {
+    height: 2px;
+    width: 47px;
+    background: white;
+    position: absolute;
+    cursor: pointer;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .top {
+    top: 7px;
+    right: 0;
+  }
+
+  .middle {
+    top: 13px;
+    right: 0;
+  }
+
+  .bottom {
+    top: 19px;
+    right: 0;
+  }
+
+  .menu-title {
+    position: absolute;
+    top: 25px;
+    left: 5px;
+    text-transform: uppercase;
+  }
+
+  .rotatedown {
+    transform: rotate(-45deg) !important;
+    transition: all 0.2s ease-in-out;
+    top: 12px;
+    right: 0;
+    width: 25px;
+  }
+
+  .rotateup {
+    transform: rotate(45deg) !important;
+    transition: all 0.2s ease-in-out;
+    top: 12px;
+    right: 0;
+    width: 25px;
+  }
+
+  .hidemiddle {
+    display: none;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+#mobile-nav {
+  background: #fff;
+  z-index: 1;
+  border-left: 1px solid #555;
+  width: 85%;
+  transition: transform 0.4s;
+  transform: translateX(100%);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .search-field {
+    height: 40px;
+  }
+
+  .nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    > li {
+      padding: 0;
+      border-bottom: 1px solid #ddd;
+
+      > a {
+        display: block;
+        padding: 10px 15px;
+        color: #333;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    }
+
+    .menu-item-has-children {
+      padding-bottom: 0;
+    }
+
+    .sub-menu {
+      list-style: none;
+
+      a {
+        padding: 10px 15px;
+        display: block;
+      }
+    }
+  }
+}
+
+@screen lg {
+  .banner {
+    .nav-primary,
+    .header-btns {
+      @apply block;
+    }
+
+    .nav {
+      li {
+        margin-left: 5px;
+      }
+
+      a {
+        @apply px-2 py-3;
+      }
+    }
+
+    .search-form {
+      max-width: 250px;
+    }
+  }
+
+  .page-template-template-form .banner {
+    .nav-primary,
+    .header-btns {
+      display: none !important;
+    }
+  }
+}
+
+@screen xl {
+  .banner {
+    .brand img {
+      width: 180px;
+    }
+
+    .header-btns {
+      width: auto;
+    }
+
+    .btn-join {
+      font-size: 14px;
+      padding: 12px 30px;
+    }
+
+    .btn-donate {
+      padding: 13px 30px;
+      font-size: 14px;
+    }
+
+    .nav {
+      li {
+        margin-left: 0;
+      }
+
+      a {
+        @apply px-4 py-3 text-xl;
+      }
+    }
+  }
+}
+
+@screen xxl {
+  .banner {
+    .nav {
+      margin-left: 30px;
+
+      li {
+        margin-left: 20px;
+      }
+    }
+  }
+}

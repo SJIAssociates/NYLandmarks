@@ -1,0 +1,64 @@
+.facetwp-facet {
+  padding: 10px 0;
+}
+
+.sidebar {
+  h3,
+  dt {
+    @apply text-black;
+
+    border-bottom: 1px solid black;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    font-size: 14px;
+    font-family: benton-sans-condensed, sans-serif;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    line-height: 1.15em;
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    padding: 7px 0;
+  }
+
+  .ssba a {
+    display: block;
+    text-align: center;
+  }
+
+  .grant-sidebar {
+    margin-bottom: 30px;
+  }
+
+  .tribe-events-event-meta {
+    display: block;
+  }
+
+  .widget {
+    margin-bottom: 25px;
+
+    a {
+      @apply text-black font-bold;
+
+      &:hover {
+        @apply text-primary;
+      }
+    }
+
+    .current-cat a {
+      color: $primary;
+    }
+  }
+
+  .tribe-venue {
+    margin: 0;
+    font-weight: bold;
+  }
+}
