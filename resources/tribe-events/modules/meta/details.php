@@ -79,7 +79,26 @@ $website = tribe_get_event_website_link();
           <?php endif; ?>
     <?php endif; ?>
 		
+	<?php if( !empty($eventbrite_id) ): ?>
+		<script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+		<script type="text/javascript">
 		
+			var exampleCallback = function() {
+				console.log('Order complete!');
+			};
+		
+			window.EBWidgets.createWidget({
+				widgetType: 'checkout',
+				eventId: <?php echo "'" . get_field('eventbrite_id') . "'"; ?>,
+				modal: true,
+				modalTriggerElementId: <?php echo "'eventbrite-widget-modal-trigger-" . get_field('eventbrite_id') . "'";?>,
+				onOrderComplete: exampleCallback
+			});
+		
+		
+		
+		</script>
+	<?php endif; ?>
 		
 		
 		  
@@ -184,3 +203,4 @@ $website = tribe_get_event_website_link();
 		<?php do_action( 'tribe_events_single_meta_details_section_end' ) ?>
 	</dl>
 </div>
+
