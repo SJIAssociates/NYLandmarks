@@ -611,11 +611,27 @@ function auto_save_city( $post_id ) {
 
   // do something
   if( empty(get_field('city'))  ):
+  
     update_field('city', $city);
+    
   endif;
 }
 
 add_action('acf/save_post',  __NAMESPACE__ .'\\auto_save_city', 20);
+
+
+
+function hide_sacred_city( $field ) {
+
+    // Don't show this field once it contains a value.
+    if( $field['value'] ) {
+        return false;
+    }
+    return $field;
+}
+
+// Apply to fields named "example_field".
+add_filter('acf/prepare_field/name=city',  __NAMESPACE__ .'\\hide_sacred_city');
 
 // -------------------------------------------------------------
 // Change Search Results URL
