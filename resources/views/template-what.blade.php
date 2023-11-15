@@ -22,6 +22,33 @@
       @endforeach
   	</div>
   </section>
+  
+  
+<!-- <section class='full-section bg-blue-grey' aria-label="Most Recent Success Stories" >
+  <div class='container'>
+    <div class="text-center">
+		  <h2><span class='bg-blue-grey'>50th Anniversary</span></h2>
+    </div>
+     <div class='flex success-box'>
+        <div class='flex w-full p-12 xl:p-24 bg-white my-8'>
+          <div class='flex-1 w-full sm:w-1/2 flex flex-col pr-8 justify-center'>
+      		    <h3 class='xxl:text-4xl xxl:pr-10'>Celebrate the New York Landmarks Conservancy's 50th anniversary by experiencing the 50 at 50 exhibition.</h3>
+      		    <div class="">
+        		    <a href="/celebrate-50-at-50/" class='btn bg-red text-white inline-block hover:no-underline'>Explore Exhibit</a><br>
+      		    </div>
+      		  </div>
+          <div class='flex-1 w-full sm:w-1/2'>
+          <div class='grow-box'>
+        		  <img src="@asset('images/location-placeholder.jpg')" alt="">
+            </div>
+      		</div>
+       </div>
+      </div>
+        
+  </div>    
+</section> -->
+
+
 <section class='full-section bg-blue-grey' aria-label="Most Recent Success Stories"  >
   <div class='container'>
     <div class="text-center">
