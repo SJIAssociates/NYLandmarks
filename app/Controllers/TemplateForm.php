@@ -15,7 +15,7 @@ class TemplateForm extends Controller
   public function formCode()
   {
 
-    $code = get_field('form_shortcode');
+    $code = get_field('givebutter_shortcode');
 
     return do_shortcode($code);
   }
