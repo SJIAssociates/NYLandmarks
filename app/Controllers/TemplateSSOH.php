@@ -124,6 +124,7 @@ class TemplateSsoh extends Controller
               'template'        => $block['template'],
               'activate_filters'=> $block['activate_filters'],
               'map'             => $block['activate_map'],
+              'hide_section'    => $block['hide_section'],
               'filters'         => $block['filters']
             ];
 

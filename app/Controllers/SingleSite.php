@@ -27,11 +27,11 @@ class SingleSite extends Controller
 
       $location = get_field('location',$prevPost->ID);
       // Address, City, State zip
-      $Fulladdress = $location['address'];
+      $Fulladdress = array_pad(explode(",",$location['address']) , 3 , null);
 
-      $numberAddress = explode(",",$Fulladdress)[0];
-      $city = explode(",",$Fulladdress)[1];
-      $state = explode(",",$Fulladdress)[2];
+      $numberAddress = $Fulladdress[0];
+      $city = $Fulladdress[1];
+      $state = $Fulladdress[2];
 
       $formatAddress = $numberAddress . ",<br />" . $city . ", " . $state;
 
