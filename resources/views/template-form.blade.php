@@ -25,7 +25,7 @@
 </section>
 <section aria-label="Extra Form Details Section">
   <div class='container'>
-    <div class="content flex">
+    <div class="content flex flex-wrap">
       @if( $page_sidebar != false)
       <aside class='sidebar py-8 w-full lg:w-1/3 xxl:py-12 pr-10'>
         @foreach($page_sidebar as $item )
