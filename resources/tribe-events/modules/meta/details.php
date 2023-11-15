@@ -54,6 +54,35 @@ $website = tribe_get_event_website_link();
 ?>
 
 <div class="tribe-events-meta-group tribe-events-meta-group-details">
+
+  
+	 <?php
+  	 //Updated Oct 13th, 2023
+   $eventbrite_id = get_field('eventbrite_id');
+   $sold_out = get_field('sold_out');
+   $ticket_link = get_field('ticket_link');
+   
+   
+   if( !empty($eventbrite_id) ):
+          if( $sold_out ): ?>
+            <a class="py-5 bg-primary block text-white uppercase text-center w-full mb-5 mt-0 cursor-not-allowed opacity-50">Sold Out</a>
+          <?php else: ?>
+            <btn class="btn text-white block text-center w-full mb-5 mt-0" id="eventbrite-widget-modal-trigger-<?php echo $eventbrite_id; ?>">Get Tickets</btn>
+          <?php endif; ?>
+    <?php endif;
+
+    if( !empty($ticket_link) ):
+        if( $sold_out ): ?>
+            <a class="py-5 bg-primary block text-white uppercase text-center w-full mb-5 mt-0 cursor-not-allowed opacity-50">Sold Out</a>
+        <?php else: ?>
+            <a class="btn text-white block text-center w-full mb-5 mt-0" href="<?php echo $ticket_link; ?>" target="_blank" rel="noopener">Get Tickets</a> 
+          <?php endif; ?>
+    <?php endif; ?>
+		
+		
+		
+		
+		  
 	<h2 class="tribe-events-single-section-title"> <?php esc_html_e( 'Details', 'the-events-calendar' ) ?> </h2>
 	<dl>
 
@@ -126,12 +155,7 @@ $website = tribe_get_event_website_link();
 			<dd class="tribe-events-event-cost"> <?php esc_html_e( $cost ); ?> </dd>
 			<br />
 		<?php endif ?>
-		<?php
 
-		$ticketLink = get_field('ticket_link');
-		if( ! empty($ticketLink)):
-			echo '<a href="' . $ticketLink . '" class="btn text-white block text-center w-full mb-5" taget="_blank" rel="noopener" >Tickets</a>';
-		endif; ?>
 		<?php
 		echo tribe_get_event_categories(
 			get_the_id(), array(

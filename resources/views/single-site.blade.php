@@ -7,33 +7,38 @@
     <?php echo get_the_term_list( $post->ID, 'Borough', '<span class="borough text-primary font-bold uppercase inlin-block relative">', ', ', ', NY</span>' ) ?>
   </div>
 </div>
-
 <div class='container'>
   <div class="content">
     <div class='flex flex-wrap'>
       <aside class='sidebar w-full py-8 lg:w-1/3 pr-5 xxl:pr-24 xxl:py-12'>
-        @if( !empty($event_link) )
+        
+        @if( !empty($eventbrite_id) )
           @if( $sold_out )
-          <a class="py-5 bg-primary block text-white uppercase text-center w-full mb-5 mt-0 cursor-not-allowed opacity-50">Sold Out</a>
+            <a class="py-5 bg-primary block text-white uppercase text-center w-full mb-5 mt-0 cursor-not-allowed opacity-50">Sold Out</a>
           @else
-          <a class="btn text-white block text-center w-full mb-5 mt-0" href="{!! $event_link !!}" target="_blank" rel="noopener">Get Tickets</a>
+            <btn class="btn text-white block text-center w-full mb-5 mt-0 cursor-pointer" id="eventbrite-widget-modal-trigger-{!! $eventbrite_id!!}">Get Tickets</btn>
           @endif
         @endif
-        @if($dates_open)
+        @if( !empty($ticket_link) )
+          @if( $sold_out )
+            <a class="py-5 bg-primary block text-white uppercase text-center w-full mb-5 mt-0 cursor-not-allowed opacity-50">Sold Out</a>
+          @else
+            <a class="btn text-white block text-center w-full mb-5 mt-0" href="{!! $ticket_link !!}" target="_blank" rel="noopener">Get Tickets</a> 
+          @endif
+        @endif
+        
+        @if( !empty($dates_open) )
         <div class='widget'>
           <h3>Date</h3>
-          @if( $dates_open == 'Saturday')
+          @if( in_array('Saturday' , $dates_open) )
             <p class='mb-0'><strong>Saturday:</strong> {!! $saturday_open!!} - {!! $saturday_close!!}</p>
-            <p><strong>Sunday:</strong> Closed</p>
-          @elseif($dates_open == 'Sunday')
-            <p class='mb-0'><strong>Saturday:</strong> Closed</p>
-            <p><strong>Sunday:</strong> {!! $sunday_open!!} - {!! $sunday_close!!}</p>
-          @else
-            <p class='mb-0'><strong>Saturday:</strong> {!! $saturday_open!!} - {!! $saturday_close!!}</p>
+          @endif
+          @if( in_array('Sunday' , $dates_open) )
             <p><strong>Sunday:</strong> {!! $sunday_open!!} - {!! $sunday_close!!}</p>
           @endif
         </div>
         @endif
+        
         @if($activities)
         <div class='widget'>
           <h3>Tours</h3>
@@ -114,6 +119,26 @@
    max-width: inherit !important;
 }
 </style>
+@if( !empty($eventbrite_id) )
+  <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+  <script type="text/javascript">
+   
+       var exampleCallback = function() {
+          console.log('Order complete!');
+      };
+  
+      window.EBWidgets.createWidget({
+          widgetType: 'checkout',
+          eventId: <?php echo "'" . get_field('eventbrite_id') . "'"; ?>,
+          modal: true,
+          modalTriggerElementId: <?php echo "'eventbrite-widget-modal-trigger-" . get_field('eventbrite_id') . "'";?>,
+          onOrderComplete: exampleCallback
+      });
+   
+   
+  
+  </script>
+@endif
 <script type="text/javascript">
 (function( $ ) {
 
@@ -234,6 +259,5 @@ $(document).ready(function(){
 
 })(jQuery);
 </script>
-
 
 @endsection

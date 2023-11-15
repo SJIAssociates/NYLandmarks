@@ -374,8 +374,8 @@ if( function_exists('acf_add_local_field_group') ):
 		'active' => true,
 		'description' => '',
 	));
-	//$cpt->labels->name
-	//$cpt->rewrite->slug
+//$cpt->labels->name
+//$cpt->rewrite->slug
 	add_action('admin_init', function(){
 
 					//Get all the Post Types that are Public and not built in (No Pages or Posts or attachments, menus, media)
